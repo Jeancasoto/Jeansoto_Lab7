@@ -5,12 +5,15 @@
  */
 package jeansoto_lab7;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jeansoto
  */
-public class Persona {
+public class Persona implements Serializable{
     
+    public final long SerializableUID = 111L;
     String nombre;
     String id;
     String lugar;

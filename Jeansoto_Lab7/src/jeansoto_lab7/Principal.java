@@ -6,6 +6,7 @@
 package jeansoto_lab7;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
 /**
  *
@@ -56,15 +57,17 @@ public class Principal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        tf_nombre = new javax.swing.JTextField();
+        tf_id = new javax.swing.JTextField();
+        tf_lugar = new javax.swing.JTextField();
+        tf_estatura = new javax.swing.JTextField();
+        tf_edad = new javax.swing.JTextField();
+        tf_profesion = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         panel_interno = new javax.swing.JPanel();
 
         jLabel3.setFont(new java.awt.Font("Marker Felt", 3, 48)); // NOI18N
@@ -230,6 +233,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
 
         jButton2.setText("CREAR");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel11.setText("Nombre");
 
@@ -256,12 +264,12 @@ public class Principal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel15)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_estatura, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_profesion, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,10 +279,10 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel14))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(tf_lugar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_id, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -285,26 +293,26 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addComponent(jLabel12))
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_lugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_estatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_profesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap())
@@ -356,6 +364,22 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Marker Felt", 3, 36)); // NOI18N
+        jLabel17.setText("Cargar personas");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Marker Felt", 3, 36)); // NOI18N
+        jLabel19.setText("Guardar Persona");
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -363,18 +387,24 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel17))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
+                .addGap(75, 75, 75)
                 .addComponent(jLabel2)
-                .addGap(82, 82, 82)
+                .addGap(68, 68, 68)
                 .addComponent(jLabel1)
-                .addGap(192, 192, 192))
+                .addGap(69, 69, 69)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(jLabel19)
+                .addGap(60, 60, 60))
         );
 
         panel_interno.setBackground(new java.awt.Color(204, 204, 204));
@@ -398,7 +428,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(panel_interno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -435,6 +465,51 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_extension_lugarActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        //lugares.setModal(true);
+        
+//        lugares.pack();
+//        lugares.setLocationRelativeTo(this);
+//        lugares.setVisible(true);
+        
+          l = new Lugar(tf_nombre_lugar.getText(),tf_clima_lugar.getText(),tf_extension_lugar.getText(),tf_habitantes_lugar.getText(),tf_zona_lugar.getText(),dc_fundado_lugar.getDate(),pp);
+       l.start();
+       
+
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+         admin ad = new admin("./people.cdb");
+                pp.add(new Persona(tf_nombre.getText(),tf_id.getText(),tf_lugar.getText(),tf_edad.getText(),tf_estatura.getText(),tf_profesion.getText()));
+
+        ad.cargarArchivo();
+        ad.setPersona(new Persona(tf_nombre.getText(),tf_id.getText(),tf_lugar.getText(),tf_edad.getText(),tf_estatura.getText(),tf_profesion.getText()));
+
+        try {
+            ad.escribirArchivo();
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        // TODO add your handling code here:
+        admin ad = new admin("./people.cdb");
+        ad.cargarArchivo();
+        pp = ad.getList();
+                  l = new Lugar(tf_nombre_lugar.getText(),tf_clima_lugar.getText(),tf_extension_lugar.getText(),tf_habitantes_lugar.getText(),tf_zona_lugar.getText(),dc_fundado_lugar.getDate(),pp);
+
+        l.start();
+    }//GEN-LAST:event_jLabel17MouseClicked
+
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
 
@@ -458,25 +533,18 @@ public class Principal extends javax.swing.JFrame {
         panel_interno.repaint();
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         // TODO add your handling code here:
-        //lugares.setModal(true);
+        admin ad = new admin("./people.cdb");
         
-//        lugares.pack();
-//        lugares.setLocationRelativeTo(this);
-//        lugares.setVisible(true);
+        ad.cargarArchivo();
+        ad.setList(pp);
+        try {
+            ad.escribirArchivo();
+        } catch (Exception e) {
+        }
         
-          l = new Lugar(tf_nombre_lugar.getText(),tf_clima_lugar.getText(),tf_extension_lugar.getText(),tf_habitantes_lugar.getText(),tf_zona_lugar.getText(),dc_fundado_lugar.getDate());
-       l.run();
-       
-
-        
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jLabel19MouseClicked
 
     /**
      * @param args the command line arguments
@@ -525,6 +593,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -536,22 +606,22 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel panel_interno;
     private javax.swing.JPanel panel_lugar;
     private javax.swing.JPanel panel_persona;
     private javax.swing.JTextField tf_clima_lugar;
+    private javax.swing.JTextField tf_edad;
+    private javax.swing.JTextField tf_estatura;
     private javax.swing.JTextField tf_extension_lugar;
     private javax.swing.JTextField tf_habitantes_lugar;
+    private javax.swing.JTextField tf_id;
+    private javax.swing.JTextField tf_lugar;
+    private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre_lugar;
+    private javax.swing.JTextField tf_profesion;
     private javax.swing.JTextField tf_zona_lugar;
     // End of variables declaration//GEN-END:variables
 
 Lugar l;
-
+ArrayList<Persona> pp= new ArrayList();
 }

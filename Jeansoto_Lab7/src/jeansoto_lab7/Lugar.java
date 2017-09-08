@@ -6,8 +6,10 @@
 package jeansoto_lab7;
 
 import java.awt.Dialog;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,14 +24,14 @@ public class Lugar extends Thread {
     String zona;
     Date fundado;
     Boolean vive;
-
+     ArrayList<Persona> personas= new ArrayList();
      Lugares lug = new Lugares();
 
 
 
     
      
-    public Lugar(String nombre, String clima, String extension, String habitantes, String zona, Date fundado) {
+    public Lugar(String nombre, String clima, String extension, String habitantes, String zona, Date fundado, ArrayList ar ) {
         this.nombre = nombre;
         this.clima = clima;
         this.extension = extension;
@@ -37,6 +39,7 @@ public class Lugar extends Thread {
         this.zona = zona;
         this.fundado = fundado;
         vive = true;
+        personas=ar;
     }
 
    
@@ -107,7 +110,19 @@ public class Lugar extends Thread {
         lug.jt_nombreLugares.setText(nombre);
         
         while (vive) {
-         
+            for (int i = 0; i < personas.size(); i++) {
+                 if (lug.jt_nombreLugares.getText().equals(personas.get(i).getLugar())) {
+             Persona s=personas.get(i);
+            Object[] newrow = {s.getNombre(),
+                s.getId(),
+                s.getLugar(),s.getEdad(),s.getEstatura(),s.getProfesion()};
+            DefaultTableModel modelo = (DefaultTableModel) lug.tabla.getModel();
+            modelo.addRow(newrow);
+            lug.tabla.setModel(modelo);
+            personas.remove(personas.get(i));
+            }
+            }
+           
 
             try {
                 Thread.sleep(2000);

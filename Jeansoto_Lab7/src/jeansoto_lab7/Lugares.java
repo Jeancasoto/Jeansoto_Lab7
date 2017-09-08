@@ -31,7 +31,7 @@ public class Lugares extends javax.swing.JFrame {
         jt_nombreLugares = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,7 +39,7 @@ public class Lugares extends javax.swing.JFrame {
 
         jLabel18.setText("Lugar");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -50,7 +50,7 @@ public class Lugares extends javax.swing.JFrame {
                 "Nombre", "ID", "Lugar", "Edad", "Estatura", "Profesion"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tabla);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -139,7 +139,7 @@ public class Lugares extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     public javax.swing.JTextField jt_nombreLugares;
+    public javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
